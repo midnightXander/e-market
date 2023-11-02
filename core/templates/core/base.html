@@ -1,0 +1,268 @@
+{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.118.2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/masonry/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <title>E-market</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    <style>
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+  
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+  
+        .b-example-divider {
+          width: 100%;
+          height: 3rem;
+          background-color: rgba(0, 0, 0, .1);
+          border: solid rgba(0, 0, 0, .15);
+          border-width: 1px 0;
+          box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+  
+        .b-example-vr {
+          flex-shrink: 0;
+          width: 1.5rem;
+          height: 100vh;
+        }
+  
+        .bi {
+          vertical-align: -.125em;
+          fill: currentColor;
+        }
+  
+        .nav-scroller {
+          position: relative;
+          z-index: 2;
+          height: 2.75rem;
+          overflow-y: hidden;
+        }
+  
+        .nav-scroller .nav {
+          display: flex;
+          flex-wrap: nowrap;
+          padding-bottom: 1rem;
+          margin-top: -1px;
+          overflow-x: auto;
+          text-align: center;
+          white-space: nowrap;
+          -webkit-overflow-scrolling: touch;
+        }
+  
+        .btn-bd-primary {
+          --bd-violet-bg: #712cf9;
+          --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+  
+          --bs-btn-font-weight: 600;
+          --bs-btn-color: var(--bs-white);
+          --bs-btn-bg: var(--bd-violet-bg);
+          --bs-btn-border-color: var(--bd-violet-bg);
+          --bs-btn-hover-color: var(--bs-white);
+          --bs-btn-hover-bg: #6528e0;
+          --bs-btn-hover-border-color: #6528e0;
+          --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+          --bs-btn-active-color: var(--bs-btn-hover-color);
+          --bs-btn-active-bg: #5a23c8;
+          --bs-btn-active-border-color: #5a23c8;
+        }
+  
+        .bd-mode-toggle {
+          z-index: 1500;
+        }
+  
+        .bd-mode-toggle .dropdown-menu .active .bi {
+          display: block !important;
+        }
+        img{
+            width:fit-content;
+            height: fit-content;
+        }
+        .card-text{
+            font-weight: 100;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            text-decoration: none;
+        }
+        #logo{
+            margin: 5px;
+        }
+        #logout{
+            color:blanchedalmond;
+        }
+        .jumbotron{
+            margin-left: 400px;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .order-dir{
+            padding: 40px;
+            margin-left: 30px;
+             
+        }
+        .snowflake{
+            margin-left: 10px;
+        }
+        .item-pg-name{
+            font-size: 20pt;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-decoration: solid;
+            text-shadow: grey;
+        }
+        .item-pg-img{
+            padding: 20px;
+        }
+        .item-pg-price{
+            font-size: 20pt;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-shadow: 10px black;
+        }
+        .item-pg-descr{
+            font-size: 15pt;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            max-width: 150px;
+        }
+        .item-pg-bag{
+            position:absolute;
+            display: flex;
+            padding-left: 140px;
+            margin-bottom: 100px;
+        }
+        
+
+      </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'core:index' %}"><i id="logo" class="fa fa-ship"></i>E-Market</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <!--
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Electronics</a>
+              </li>
+            -->
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'core:category' 'Electronics' %}">Electronics</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'core:category' 'Accessories' %}">Accessories</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'core:category' 'Beauty' %}">Beauty</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'core:category' 'Clothing' %}">Clothing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'core:category' 'Jewelry' %}">Jewelry</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'core:order-details' %}">Order details</a>
+              </li>
+              <!--
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>
+            -->
+            </ul>
+            <form action="{% url 'core:search' %}" method="post" class="d-flex" role="search">
+                {% csrf_token %}
+                <input class="fosrm-control me-2" type="search" placeholder="Search for an item" name="item_name" aria-label="Search">&nbsp; 
+              <button class="btn btn-outline-success" type="submit"><i class="fa fa-search fa-1x"></i></button>
+            </form>
+
+            <a class="nav-link" href="{% url 'core:bag' %}">
+                <button class="btn btn-outline-success" type="submit">
+                <i id="shopping_bag" class="fa fa-shopping-bag"></i>
+                
+            </button>
+        </a>
+
+{% if user.is_authenticated %}
+
+
+    Hey {{user.username}}
+<a id="logout" class="nav-link"  href="{% url 'core:logout' %}">
+    <button class="btn btn-outline-success">Log Out</button>
+</a>
+
+{% else %}
+    <a  class="nav-link"  href="{% url 'core:signin' %}">Log in</a>
+
+    <a  class="nav-link"  href="{% url 'core:register' %}">Register</a>
+</ul>
+ {% endif %}   
+
+          </div>
+        </div>
+      </nav>
+
+
+
+<!--
+<a href="{% url 'core:add-order-details' %}">Add order details</a>
+<form action="{% url 'core:search' %}" method="post" class="form">
+    {% csrf_token %}
+    <input type="text" name="item_name" placeholder="search for an item">
+    <button type="submit"><i class="fa fa-search"></i></button>
+
+</form>
+
+
+
+
+<a href="{% url 'core:bag' %}"><i class="fa fa-shopping-bag"></i></a>
+{% if user.is_authenticated %}
+hey {{user.username}}    
+<a href="{% url 'core:logout' %}">logout</a>
+{% else %}
+    <a href="{% url 'core:signin' %}">Log in</a>
+
+    <a href="{% url 'core:register' %}">Register</a>
+
+ {% endif %}   
+-->
+    <div class="container">
+    <div class="page-header">
+        {% block header%}{% endblock header %}
+    </div>
+    <div>
+        {% block content %}{% endblock content %}
+
+    </div>
+    </div>
+    
+
+</body>
+
+
+</html>

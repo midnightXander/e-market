@@ -1,0 +1,20 @@
+{% extends "core/base.html" %}
+{% load bootstrap5 %}
+
+{% block header %}
+
+<h4>Edit your order details:</h4>
+{% endblock header %}
+
+{% block content %}
+<form action="{% url 'core:edit-order-details' %}" method="post">
+    {% csrf_token %}
+        {% bootstrap_form form %}
+    
+        {% buttons %}
+        <button type="submit">save</button>
+        {% endbuttons %}
+    
+    </form>
+
+{% endblock content %}

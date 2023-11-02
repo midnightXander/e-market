@@ -1,0 +1,22 @@
+{% extends "core/base.html" %}
+
+{% block header %}
+<h4 class="order-dir">Add item to your bag, enter your bag and order<i id="snowflake" class="fa fa-snowflake-o"></i></h4>
+{% endblock header %}
+
+{% block content %}
+<div class="item-pg">
+<span class="item-pg-name">{{item.name}}</span>
+<img class="item-pg-img" src="{{ item.image.url }}">
+<span class="item-pg-price">{{item.price}}$</span>
+<p class="item-pg-descr">for {{item.description}}</p>
+
+<div id="item-pg-bag">
+<a href="{% url 'core:add_to_bag' item.id %}">
+    <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-shopping-bag"></i></button>
+</a>
+</div>
+</div>
+    
+
+{% endblock content %}

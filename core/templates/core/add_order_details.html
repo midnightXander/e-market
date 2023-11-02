@@ -1,0 +1,17 @@
+{% extends "core/base.html" %}
+{%  load bootstrap5 %}
+{% block header %}
+<h3>add details for orders</h3>
+{% endblock header %}
+
+{% block content %}
+<form action="{% url 'core:add-order-details' %}" method="post">
+{% csrf_token %}
+    {% bootstrap_form form %}
+
+    {% buttons %}
+    <button type="submit">save</button>
+    {% endbuttons %}
+
+</form>
+{% endblock content %}

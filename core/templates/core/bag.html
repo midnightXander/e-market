@@ -1,0 +1,32 @@
+{% extends "core/base.html" %}
+
+{% block header %}
+<h2>Your bag of items</h2>
+{% if items_count > 1 %}
+<span>you have {{items_count}} items in bag</span>
+{% else %}
+<span>you have {{items_count}} item in bag</span>
+{% endif %}
+{% endblock header %}
+
+{% block content %}
+{% for item in items %}
+<ul>
+    <li>
+        <span>{{item.name}}</span>
+        <span>${{item.price}}</span>
+        <span>{{item.description}}</span>
+
+        <input type="number" min="0" name="no_ordered" placeholder="number of articles">
+    
+    </li>
+</ul>
+<a ><button>Order</button></a>
+ 
+{% empty %}
+<p>NO items in bag yet go to <a href="{% url 'core:index' %}">home</a>
+     to see interesting items</p>
+{% endfor %}
+Or contact XXXXXXX  
+
+{% endblock content %}

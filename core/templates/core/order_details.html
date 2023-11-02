@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+
+{% block header %}
+<h4>Your order details:</h4>
+{% endblock header %}
+
+{% block content%}
+
+{% if order_details %}
+<span>Location: {{order_details.location}}</span>
+<span>Date of delivery: {{order_details.date_of_delivery}}</span>
+<span>balance : {{order_details.balance}}</span>
+
+{% else %}
+<span>You did not added details yet </span>
+<p>
+    <a href="{% url 'core:add-order-details' %}">
+     Add details  
+        <i class="fa fa-plus"></i>
+    </a>
+</p>
+
+{% endif %}
+<span>
+    <a href="{% url 'core:edit-order-details' %}">
+        Edit details 
+        <i class="fa fa-edit"></i>
+    </a>
+</span>
+
+{% endblock content %}
